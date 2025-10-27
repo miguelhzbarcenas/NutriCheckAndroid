@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PatientProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            tools:text="Nombre Completo del Paciente" />
+
+        <TextView
+            android:id="@+id/tv_patient_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            tools:text="30 años" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Datos del Paciente -->
+        <TextView style="@style/TextAppearance.MaterialComponents.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/birth_date"/>
+        <TextView android:id="@+id/tv_birthday" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" tools:text="01/01/1990" android:layout_marginBottom="12dp"/>
+
+        <TextView style="@style/TextAppearance.MaterialComponents.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gender"/>
+        <TextView android:id="@+id/tv_gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" tools:text="Masculino" android:layout_marginBottom="12dp"/>
+
+        <TextView style="@style/TextAppearance.MaterialComponents.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/weight"/>
+        <TextView android:id="@+id/tv_weight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" tools:text="75 kg" android:layout_marginBottom="12dp"/>
+
+        <TextView style="@style/TextAppearance.MaterialComponents.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/height"/>
+        <TextView android:id="@+id/tv_height" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" tools:text="180 cm" android:layout_marginBottom="12dp"/>
+
+        <TextView style="@style/TextAppearance.MaterialComponents.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/additional_notes"/>
+        <TextView android:id="@+id/tv_notes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" tools:text="El paciente tiene historial de alergias." android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn_edit_patient"
+            android:backgroundTint="@color/app_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_patient_data" />
+
+    </LinearLayout>
+</ScrollView>

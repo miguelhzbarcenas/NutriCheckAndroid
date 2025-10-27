@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/patientListFragment">
+
+    <fragment
+        android:id="@+id/patientListFragment"
+        android:name="com.example.nutricheckproject.ui.PatientListFragment"
+        android:label="Pacientes"
+        tools:layout="@layout/fragment_patient_list">
+
+        <!-- Acción para ir al perfil de un paciente existente -->
+        <action
+            android:id="@+id/action_patientList_to_patientProfile"
+            app:destination="@id/patientProfileFragment" />
+
+        <!-- Acción para crear un nuevo paciente (directo al detalle) -->
+        <action
+            android:id="@+id/action_patientList_to_patientDetail"
+            app:destination="@id/patientDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientProfileFragment"
+        android:name="com.example.nutricheckproject.ui.PatientProfileFragment"
+        android:label="Perfil del Paciente"
+        tools:layout="@layout/fragment_patient_profile">
+
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_patientProfile_to_patientDetail"
+            app:destination="@id/patientDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientDetailFragment"
+        android:name="com.example.nutricheckproject.ui.PatientDetailFragment"
+        android:label="Detalle del Paciente"
+        tools:layout="@layout/fragment_patient_detail">
+
+        <argument
+            android:name="patientId"
+            app:argType="string"
+            android:defaultValue="new" />
+    </fragment>
+</navigation>

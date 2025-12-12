@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -18,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.example.nutricheckproject.databinding.FragmentPatientListBinding
 import com.example.nutricheckproject.viewmodel.PatientListViewModel
 import com.example.nutricheckproject.viewmodel.PatientViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class PatientListFragment : Fragment() {
@@ -53,6 +55,14 @@ class PatientListFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.allPatients.collect { patients ->
                     patientListAdapter.submitList(patients)
+
+                    if (patients.isEmpty()) {
+                        binding.recyclerViewPatients.visibility = View.GONE
+                        binding.layoutEmptyState.visibility = View.VISIBLE
+                    } else {
+                        binding.recyclerViewPatients.visibility = View.VISIBLE
+                        binding.layoutEmptyState.visibility = View.GONE
+                    }
                 }
             }
         }
@@ -76,6 +86,27 @@ class PatientListFragment : Fragment() {
                 .actionPatientListToPatientDetail("new")
             findNavController().navigate(action)
         }
+
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirmation()
+        }
+    }
+
+    private fun showLogoutConfirmation() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.cerrar_sesi_n))
+            .setMessage(getString(R.string.est_s_seguro_que_deseas_salir))
+            .setPositiveButton(getString(R.string.salir)) { _, _ ->
+                performLogout()
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
+    }
+
+    private fun performLogout() {
+
+        FirebaseAuth.getInstance().signOut()
+        findNavController().navigate(R.id.action_patientList_to_login)
     }
 
     private fun setupSwipeToDelete() {
@@ -100,6 +131,8 @@ class PatientListFragment : Fragment() {
         }
         ItemTouchHelper(itemTouchCallback).attachToRecyclerView(binding.recyclerViewPatients)
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

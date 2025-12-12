@@ -3,7 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/patientListFragment">
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.nutricheckproject.ui.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_patientListFragment"
+            app:destination="@id/patientListFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/patientListFragment"
@@ -11,21 +24,68 @@
         android:label="Pacientes"
         tools:layout="@layout/fragment_patient_list">
 
-        <!-- Acción para ir al perfil de un paciente existente -->
         <action
             android:id="@+id/action_patientList_to_patientProfile"
             app:destination="@id/patientProfileFragment" />
 
-        <!-- Acción para crear un nuevo paciente (directo al detalle) -->
+
         <action
             android:id="@+id/action_patientList_to_patientDetail"
             app:destination="@id/patientDetailFragment" />
+
+        <action
+            android:id="@+id/action_patientList_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/calorieCalculatorFragment"
+        android:name="com.example.nutricheckproject.ui.CalorieCalculatorFragment"
+        android:label="@string/calc_energy_title"
+        tools:layout="@layout/fragment_calorie_calculator">
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/macroCalculatorFragment"
+        android:name="com.example.nutricheckproject.ui.MacroCalculatorFragment"
+        android:label="@string/macro_title"
+        tools:layout="@layout/fragment_macro_calculator">
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/waterCalculatorFragment"
+        android:name="com.example.nutricheckproject.ui.WaterCalculatorFragment"
+        android:label="@string/water_title"
+        tools:layout="@layout/fragment_water_calculator">
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/espenCalculatorFragment"
+        android:name="com.example.nutricheckproject.ui.EspenCalculatorFragment"
+        android:label="@string/espen_title"
+        tools:layout="@layout/fragment_espen_calculator">
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/patientProfileFragment"
         android:name="com.example.nutricheckproject.ui.PatientProfileFragment"
-        android:label="Perfil del Paciente"
+        android:label="@string/perfil_del_paciente"
         tools:layout="@layout/fragment_patient_profile">
 
         <argument
@@ -35,12 +95,28 @@
         <action
             android:id="@+id/action_patientProfile_to_patientDetail"
             app:destination="@id/patientDetailFragment" />
+
+        <action
+            android:id="@+id/action_patientProfile_to_calorieCalculator"
+            app:destination="@id/calorieCalculatorFragment" />
+
+        <action
+            android:id="@+id/action_patientProfile_to_macroCalculator"
+            app:destination="@id/macroCalculatorFragment" />
+
+        <action
+            android:id="@+id/action_patientProfile_to_waterCalculator"
+            app:destination="@id/waterCalculatorFragment" />
+
+        <action
+            android:id="@+id/action_patientProfile_to_espenCalculator"
+            app:destination="@id/espenCalculatorFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/patientDetailFragment"
         android:name="com.example.nutricheckproject.ui.PatientDetailFragment"
-        android:label="Detalle del Paciente"
+        android:label="@string/detalle_del_paciente"
         tools:layout="@layout/fragment_patient_detail">
 
         <argument
@@ -48,4 +124,6 @@
             app:argType="string"
             android:defaultValue="new" />
     </fragment>
+
+
 </navigation>

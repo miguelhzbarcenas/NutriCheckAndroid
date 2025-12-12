@@ -19,6 +19,9 @@ class PatientDetailViewModel(private val repository: PatientRepository) : ViewMo
     private val _finishEvent = MutableStateFlow(false)
     val finishEvent: StateFlow<Boolean> = _finishEvent.asStateFlow()
 
+    private val _deleteSuccess = MutableStateFlow(false)
+    val deleteSuccess: StateFlow<Boolean> = _deleteSuccess.asStateFlow()
+
     fun loadPatient(patientId: UUID) {
         viewModelScope.launch {
             repository.getPatientById(patientId).collectLatest {
@@ -42,7 +45,7 @@ class PatientDetailViewModel(private val repository: PatientRepository) : ViewMo
         _patientState.value?.let { patient ->
             viewModelScope.launch {
                 repository.delete(patient)
-                _finishEvent.value = true
+                _deleteSuccess.value = true
             }
         }
     }

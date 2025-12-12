@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MacroCalculatorFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/target_calories_label"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tv_target_calories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_2000_kcal"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/adjust_percentages"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_carb_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carbohidratos_50"
+            android:textColor="#1976D2"/>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_carbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="50"
+            app:thumbColor="#1976D2"
+            app:trackColorActive="#1976D2"/>
+
+        <TextView
+            android:id="@+id/tv_prot_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prote_nas_20"
+            android:textColor="#D32F2F"/>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_prot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="20"
+            app:thumbColor="#D32F2F"
+            app:trackColorActive="#D32F2F"/>
+
+        <TextView
+            android:id="@+id/tv_fat_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/grasas_30"
+            android:textColor="#F57C00"/>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_fat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:value="30"
+            app:thumbColor="#F57C00"
+            app:trackColorActive="#F57C00"/>
+
+        <TextView
+            android:id="@+id/tv_total_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_distribuci_n_100"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/requirements_smae"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <include
+            android:id="@+id/card_carbs"
+            layout="@layout/item_macro_card"/>
+
+        <Space android:layout_width="match_parent" android:layout_height="8dp"/>
+
+        <include
+            android:id="@+id/card_prot"
+            layout="@layout/item_macro_card"/>
+
+        <Space android:layout_width="match_parent" android:layout_height="8dp"/>
+
+        <include
+            android:id="@+id/card_fat"
+            layout="@layout/item_macro_card"/>
+
+    </LinearLayout>
+</ScrollView>

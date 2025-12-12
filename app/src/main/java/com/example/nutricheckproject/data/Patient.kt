@@ -33,6 +33,9 @@ data class Patient(
     @ColumnInfo(name = "weight")
     val weight: Double?,
 
+    @ColumnInfo(name = "targetCalories")
+    val targetCalories: Double? = 0.0,
+
     @ColumnInfo(name = "notes")
     val notes: String?,
 

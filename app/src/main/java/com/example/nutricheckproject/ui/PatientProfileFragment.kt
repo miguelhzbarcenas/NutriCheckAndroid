@@ -50,7 +50,7 @@ class PatientProfileFragment : Fragment() {
         try {
             val patientId = UUID.fromString(args.patientId)
             viewModel.loadPatient(patientId)
-        } catch (e: IllegalArgumentException) {
+        } catch (_: IllegalArgumentException) {
             Toast.makeText(context, R.string.error_id_de_paciente_inv_lido, Toast.LENGTH_SHORT).show()
             findNavController().popBackStack()
             return
@@ -61,12 +61,32 @@ class PatientProfileFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
+
         binding.btnEditPatient.setOnClickListener {
             val action = PatientProfileFragmentDirections.actionPatientProfileToPatientDetail(args.patientId)
             findNavController().navigate(action)
         }
-    }
 
+        binding.btnToolCalories.setOnClickListener {
+            val action = PatientProfileFragmentDirections.actionPatientProfileToCalorieCalculator(args.patientId)
+            findNavController().navigate(action)
+        }
+
+        binding.btnToolMacros.setOnClickListener {
+            val action = PatientProfileFragmentDirections.actionPatientProfileToMacroCalculator(args.patientId)
+            findNavController().navigate(action)
+        }
+
+        binding.btnToolWater.setOnClickListener {
+            val action = PatientProfileFragmentDirections.actionPatientProfileToWaterCalculator(args.patientId)
+            findNavController().navigate(action)
+        }
+
+        binding.btnToolEspen.setOnClickListener {
+            val action = PatientProfileFragmentDirections.actionPatientProfileToEspenCalculator(args.patientId)
+            findNavController().navigate(action)
+        }
+    }
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -62,7 +63,7 @@ class PatientDetailFragment : Fragment() {
                 currentPatientId = patientId
                 viewModel.loadPatient(patientId)
                 binding.btnDelete.visibility = View.VISIBLE
-            } catch (e: IllegalArgumentException) {
+            } catch (_: IllegalArgumentException) {
                 Toast.makeText(context,
                     getString(R.string.error_id_de_paciente_inv_lido), Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
@@ -77,8 +78,19 @@ class PatientDetailFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.btnSave.setOnClickListener { savePatient() }
-        binding.btnDelete.setOnClickListener { deletePatient() }
+        binding.btnDelete.setOnClickListener { showDeleteConfirmation() }
         binding.etBirthday.setOnClickListener { showDatePicker() }
+    }
+
+    private fun showDeleteConfirmation() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.confirmar_eliminacion))
+            .setMessage(getString(R.string.mensaje_confirmar_eliminar))
+            .setPositiveButton(getString(R.string.eliminar)) { _, _ ->
+                viewModel.deletePatient()
+            }
+            .setNegativeButton(getString(R.string.cancelar), null)
+            .show()
     }
 
     private fun showDatePicker() {
@@ -113,6 +125,17 @@ class PatientDetailFragment : Fragment() {
                 viewModel.finishEvent.collect { didFinish ->
                     if (didFinish) {
                         findNavController().popBackStack()
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.deleteSuccess.collect { deleted ->
+                    if (deleted) {
+                        Toast.makeText(context, getString(R.string.paciente_eliminado), Toast.LENGTH_SHORT).show()
+                        findNavController().popBackStack(R.id.patientListFragment, false)
                     }
                 }
             }
@@ -162,7 +185,7 @@ class PatientDetailFragment : Fragment() {
 
         val birthday: Date? = try {
             dateFormat.parse(dateString)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             Toast.makeText(context,
                 getString(R.string.formato_de_fecha_inv_lido), Toast.LENGTH_SHORT).show()
             return
@@ -234,10 +257,6 @@ class PatientDetailFragment : Fragment() {
         )
 
         viewModel.savePatient(patientToSave)
-    }
-
-    private fun deletePatient() {
-        viewModel.deletePatient()
     }
 
     override fun onDestroyView() {

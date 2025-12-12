@@ -37,4 +37,128 @@
     <string name="nombre_s">Nombre(s)</string>
     <string name="apellido_materno">Apellido Materno</string>
     <string name="fecha_de_nacimiento_dd_mm_yyyy">Fecha de Nacimiento (dd/MM/yyyy)</string>
+    <string name="tools_section">Herramientas Clínicas</string>
+    <string name="tool_calories">Calculadora Energética</string>
+    <string name="tool_water">Requerimiento Hídrico</string>
+    <string name="tool_macros">Distribución de Macros</string>
+    <string name="tool_espen">Protocolo ESPEN (UCI)</string>
+    <string name="calc_energy_title">Calculadora Energética</string>
+    <string name="formula_label">Fórmula de Cálculo</string>
+    <string name="activity_label">Factor de Actividad</string>
+    <string name="stress_label">Factor de Estrés Clínico</string>
+    <string name="bmr_result">Tasa Metabólica Basal (TMB)</string>
+    <string name="activity_result">TMB x Actividad</string>
+    <string name="total_energy_result">Gasto Energético Total</string>
+    <string name="save_calories">Guardar Resultado en Paciente</string>
+    <string name="calories_saved">Calorías guardadas correctamente</string>
+    <string name="macro_title">Macros y Equivalentes</string>
+    <string name="target_calories_label">Calorías Meta</string>
+    <string name="adjust_percentages">Ajuste de Porcentajes</string>
+    <string name="carbs">Carbohidratos</string>
+    <string name="proteins">Proteínas</string>
+    <string name="fats">Grasas</string>
+    <string name="total_dist">Total Distribución: %d%%</string>
+    <string name="requirements_smae">Requerimiento (SMAE)</string>
+
+    <string name="carb_details">4 kcal/g • /15g eq</string>
+    <string name="prot_details">4 kcal/g • /7g eq</string>
+    <string name="fat_details">9 kcal/g • /5g eq</string>
+    <string name="eq_format">%.1f Equivalentes</string>
+    <string name="g_format">%.0f g</string>
+
+    <string name="eq_cereals">Cereales/Frutas</string>
+    <string name="eq_legumes">OA/Leguminosas</string>
+    <string name="eq_oils">Grasas/Aceites</string>
+    <string name="water_title">Calculadora de Agua</string>
+    <string name="hydration_header">Hidratación Diaria</string>
+    <string name="patient_weight_format">Peso del Paciente: %.1f kg</string>
+    <string name="factor_label">Factor Hídrico (ml/kg)</string>
+    <string name="desc_30">Sedentario / Adulto Mayor</string>
+    <string name="desc_35">Adulto Promedio (Estándar)</string>
+    <string name="desc_40">Activo / Clima Cálido</string>
+    <string name="desc_45">Atleta / Pérdida excesiva</string>
+
+    <string name="result_liters">TOTAL LITROS</string>
+    <string name="result_glasses">VASOS (250ml)</string>
+    <string name="liters_format">%.2f L</string>
+    <string name="glasses_format">%.0f Vasos</string>
+
+    <string name="ml_30">30ml</string>
+    <string name="ml_35">35ml</string>
+    <string name="ml_40">40ml</string>
+    <string name="ml_45">45ml</string>
+
+    <string name="espen_title">Protocolo ESPEN</string>
+    <string name="section_diagnosis">Diagnóstico Nutricional</string>
+    <string name="card_bmi">IMC (BMI)</string>
+    <string name="card_category">Categoría</string>
+    <string name="section_logic">Lógica Clínica</string>
+    <string name="card_guide">Guía ESPEN Aplicada</string>
+    <string name="result_target">Objetivo Calórico (UCI)</string>
+    <string name="analyzing">Analizando…</string>
+
+    <string name="cat_normal">Peso Normal / Sobrepeso</string>
+    <string name="form_normal">Paciente Normopeso: Se utiliza el rango estándar UCI de 25–30 kcal/kg de peso real.</string>
+
+    <string name="cat_obesity_1_2">Obesidad (Grado I-II)</string>
+    <string name="form_obesity_1_2">Obesidad (IMC 30–50): Guía ESPEN recomienda restricción calórica de 11–14 kcal/kg usando el PESO ACTUAL.</string>
+
+    <string name="cat_obesity_3">Obesidad Mórbida (Grado III)</string>
+    <string name="form_obesity_3">Obesidad Severa (IMC > 50): Se utiliza el PESO IDEAL (%1$d kg) con un rango de 22–25 kcal/kg.</string>
+
+    <string name="espen_note">Nota: Cálculos basados en Guías ESPEN sobre nutrición clínica en la unidad de cuidados intensivos (UCI). En obesidad mórbida se utiliza Peso Ideal.</string>
+    <string name="insufficient_data">Datos Insuficientes</string>
+    <string name="kcal_day_range">%1$d - %2$d kcal/día</string>
+
+    <string name="login_title">Bienvenido a NutriCheck</string>
+    <string name="email_hint">Correo Electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="btn_forgot_pass">¿Olvidaste tu contraseña?</string>
+    <string name="error_empty_fields">Por favor llena todos los campos</string>
+    <string name="login_success">Sesión iniciada correctamente</string>
+    <string name="register_success">Usuario registrado. Bienvenido.</string>
+    <string name="reset_email_sent">Correo de recuperación enviado.</string>
+    <string name="loading">Cargando…</string>
+
+    <string name="confirmar_eliminacion">Confirmar Eliminación</string>
+    <string name="mensaje_confirmar_eliminar">¿Estás seguro que deseas eliminar a este paciente? Esta acción no se puede deshacer.</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="kcal">%1$d kcal</string>
+    <string name="activity_kcal">%1$d kcal</string>
+    <string name="total_kcal">%1$d kcal</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="est_s_seguro_que_deseas_salir">¿Estás seguro que deseas salir?</string>
+    <string name="salir">Salir</string>
+    <string name="cancel">Cancelar</string>
+    <string name="mifflin_st_jeor">Mifflin-St Jeor</string>
+    <string name="_0_kcal">0 kcal</string>
+    <string name="_0_0_kcal_d_a">0 – 0 kcal/día</string>
+    <string name="explicaci_n_de_la_f_rmula_aplicada">Explicación de la fórmula aplicada…</string>
+    <string name="total_distribuci_n_100">Total Distribución: 100%</string>
+    <string name="grasas_30">Grasas: 30%</string>
+    <string name="prote_nas_20">Proteínas: 20%</string>
+    <string name="carbohidratos_50">Carbohidratos: 50%</string>
+    <string name="_2000_kcal">2000 kcal</string>
+    <string name="logo_de_nutricheck">Logo de NutriCheck</string>
+    <string name="a_n_no_tienes_pacientes">¡Aún no tienes pacientes!</string>
+    <string name="agrega_tu_primer_paciente_tocando_el_bot_n_de_abajo_para_comenzar">Agrega tu primer paciente tocando el botón de abajo para comenzar.</string>
+    <string name="mano_abajo">👇</string>
+    <string name="nombre_completo_del_paciente">Nombre Completo del Paciente</string>
+    <string name="vasos">-- Vasos</string>
+    <string name="l">-- L</string>
+    <string name="adulto_promedio">Adulto Promedio</string>
+    <string name="peso_del_paciente_70_kg">Peso del Paciente: 70 kg</string>
+    <string name="cereales">Cereales</string>
+    <string name="carbohidratos">Carbohidratos</string>
+    <string name="imagen_logo_persona">Imagen logo persona</string>
+    <string name="perfil_del_paciente">Perfil del Paciente</string>
+    <string name="detalle_del_paciente">Detalle del Paciente</string>
+
+    <string name="error_invalid_email">El formato del correo electrónico no es válido</string>
+    <string name="target_kcal">%1$d kcal</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="mis_pacientes">Mis Pacientes</string>
 </resources>

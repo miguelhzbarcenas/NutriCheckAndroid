@@ -4,7 +4,8 @@ plugins {
     //id("kotlin-kapt")
     alias(libs.plugins.ksp)
 
-    alias(libs.plugins.navigation.safeargs) // <-- AÑADIDO
+    alias(libs.plugins.navigation.safeargs)
+    alias(libs.plugins.google.gms.google.services) // <-- AÑADIDO
 }
 
 android {
@@ -50,6 +51,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.mediation.test.suite)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
